@@ -1,2 +1,2 @@
-first_merge_conflict
+second_merge_conflict
         
