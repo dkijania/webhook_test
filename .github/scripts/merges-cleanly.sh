@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x
-
 BRANCH=$1
 CURRENT=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}
 echo 'Testing for conflicts between the current branch `'"${CURRENT}"'` and `'"${BRANCH}"'`...'
