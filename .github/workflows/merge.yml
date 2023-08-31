@@ -1,0 +1,35 @@
+name: "Merge check"
+on:
+  pull_request:
+
+jobs:
+  merges-cleanly-to-compatible:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Extract branch name
+      shell: bash
+      run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+      id: BUILDKITE_BRANCH
+    - name: Run script
+      run: ./.github/scripts/merges-cleanly.sh compatible
+      shell: bash
+  merges-cleanly-to-berkeley:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Extract branch name
+      shell: bash
+      run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+      id: BUILDKITE_BRANCH
+    - name: Run script
+      run: ./.github/scripts/merges-cleanly.sh berkeley
+      shell: bash
+  merges-cleanly-to-develop:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Extract branch name
+      shell: bash
+      run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+      id: BUILDKITE_BRANCH
+    - name: Run script
+      run: ./.github/scripts/merges-cleanly.sh develop
+      shell: bash
