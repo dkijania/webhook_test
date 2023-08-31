@@ -1,8 +1,7 @@
 #!/bin/bash
 
 BRANCH=$1
-CURRENT=$(git branch --show-current)
-echo 'Testing for conflicts between the current branch `'"${CURRENT}"'` and `'"${BRANCH}"'`...'
+echo 'Testing for conflicts between the current branch `'"${BUILDKITE_BRANCH}"'` and `'"${BRANCH}"'`...'
 
 # Adapted from this stackoverflow answer: https://stackoverflow.com/a/10856937
 # The git merge-tree command shows the content of a 3-way merge without
