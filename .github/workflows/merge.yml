@@ -13,6 +13,7 @@ jobs:
     - name: Run script
       run: ./.github/scripts/merges-cleanly.sh compatible
       shell: bash
+      
   merges-cleanly-to-berkeley:
     runs-on: ubuntu-latest
     steps:
@@ -23,6 +24,7 @@ jobs:
     - name: Run script
       run: ./.github/scripts/merges-cleanly.sh berkeley
       shell: bash
+
   merges-cleanly-to-develop:
     runs-on: ubuntu-latest
     steps:
