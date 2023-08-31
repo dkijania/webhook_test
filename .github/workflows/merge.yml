@@ -6,6 +6,7 @@ jobs:
   merges-cleanly-to-compatible:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - name: Extract branch name
       shell: bash
       run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
@@ -13,10 +14,11 @@ jobs:
     - name: Run script
       run: ./.github/scripts/merges-cleanly.sh compatible
       shell: bash
-      
+
   merges-cleanly-to-berkeley:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - name: Extract branch name
       shell: bash
       run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
@@ -28,6 +30,7 @@ jobs:
   merges-cleanly-to-develop:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - name: Extract branch name
       shell: bash
       run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
