@@ -1,8 +1,10 @@
 #!/bin/bash
 
+set -x
+
 BRANCH=$1
 CURRENT=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}
-echo 'Testing for conflicts between the current branch `'"${GITHUB_HEAD_REF}"'` and `'"${BRANCH}"'`...'
+echo 'Testing for conflicts between the current branch `'"${CURRENT}"'` and `'"${BRANCH}"'`...'
 
 # Adapted from this stackoverflow answer: https://stackoverflow.com/a/10856937
 # The git merge-tree command shows the content of a 3-way merge without
@@ -12,7 +14,7 @@ echo 'Testing for conflicts between the current branch `'"${GITHUB_HEAD_REF}"'` 
 git fetch origin
 # Check mergeability
 
-curl -s https://github.com/dkijania/webhook_test/branches/pre_mergeable/${BRANCH}...${CURRENT} | grep "Able to merge"
+curl -s https://github.com/dkijania/webhook_test/branches/pre_mergeable/${BRANCH}...${CURRENT} | grep "Abssle to merge"
 
 RET=$?
 
