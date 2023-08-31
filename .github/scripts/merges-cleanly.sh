@@ -14,16 +14,16 @@ echo 'Testing for conflicts between the current branch `'"${CURRENT}"'` and `'"$
 git fetch origin
 # Check mergeability
 
-curl -s https://github.com/dkijania/webhook_test/branches/pre_mergeable/${BRANCH}...${CURRENT} | grep "Abssle to merge"
+curl -s https://github.com/dkijania/webhook_test/branches/pre_mergeable/${BRANCH}...${CURRENT} | grep "Able to merge"
 
 RET=$?
 
 if [ $RET -eq 0 ]; then
+  echo "No conflicts found against upstream branch ${BRANCH}"
+  exit 0
+else
   # Found a conflict
   echo "[ERROR] This pull request conflicts with $BRANCH, please open a new pull request against $BRANCH at this link:"
   echo "https://github.com/dkijania/webhook_test/compare/${BRANCH}...${CURRENT}"
   exit 1
-else
-  echo "No conflicts found against upstream branch ${BRANCH}"
-  exit 0
 fi
