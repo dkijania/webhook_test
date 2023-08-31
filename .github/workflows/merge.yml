@@ -6,30 +6,35 @@ jobs:
   merges-cleanly-to-compatible:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - name: Extract branch name
       shell: bash
-      run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
-      id: BUILDKITE_BRANCH
+      run: echo "CURRENT_BRANCH=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+      id: CURRENT_BRANCH
     - name: Run script
       run: ./.github/scripts/merges-cleanly.sh compatible
       shell: bash
+
   merges-cleanly-to-berkeley:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - name: Extract branch name
       shell: bash
-      run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
-      id: BUILDKITE_BRANCH
+      run: echo "CURRENT_BRANCH=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+      id: CURRENT_BRANCH
     - name: Run script
       run: ./.github/scripts/merges-cleanly.sh berkeley
       shell: bash
+
   merges-cleanly-to-develop:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - name: Extract branch name
       shell: bash
-      run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
-      id: BUILDKITE_BRANCH
+      run: echo "CURRENT_BRANCH=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+      id: CURRENT_BRANCH
     - name: Run script
       run: ./.github/scripts/merges-cleanly.sh develop
       shell: bash
