@@ -1,3 +1,3 @@
-compatible
+compatible-conflict
 berkeley
-develop
+develop-conflict
