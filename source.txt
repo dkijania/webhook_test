@@ -1,1 +1,3 @@
-compatible-better
+compatible-conflict
+berkeley
+develop-conflict
