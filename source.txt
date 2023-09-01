@@ -1,4 +1,4 @@
 compatible
-berkeley
+berkeley-new
 ----
 ----
