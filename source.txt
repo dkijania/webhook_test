@@ -1,5 +1,5 @@
 ----
-compatible
+compatible-new
 ----
 berkeley-new
 ----
