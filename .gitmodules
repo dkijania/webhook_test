@@ -1,3 +1,6 @@
 [submodule "submodule"]
 	path = submodule
 	url = https://github.com/dkijania/web_hook_submodule_test
+[submodule "web_hook_submodule_test"]
+	path = web_hook_submodule_test
+	url = https://github.com/dkijania/web_hook_submodule_test.git
